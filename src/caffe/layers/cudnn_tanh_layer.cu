@@ -13,14 +13,16 @@ void CuDNNTanHLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
   ////////////////////////////////
 #if CUDNN_VERSION_MIN(5, 0, 0)
   CUDNN_CHECK(cudnnActivationForward(this->handle_,
-        activ_desc_,
+        //activ_desc_,
+        CUDNN_ACTIVATION_TANH,
         cudnn::dataType<Dtype>::one,
         this->bottom_desc_, bottom_data,
         cudnn::dataType<Dtype>::zero,
         this->top_desc_, top_data));
 #else
   CUDNN_CHECK(cudnnActivationForward_v4(this->handle_,
-        activ_desc_,
+        //activ_desc_,
+        CUDNN_ACTIVATION_TANH,
         cudnn::dataType<Dtype>::one,
         this->bottom_desc_, bottom_data,
         cudnn::dataType<Dtype>::zero,
@@ -44,7 +46,8 @@ void CuDNNTanHLayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
 ////////////////////////
 #if CUDNN_VERSION_MIN(5, 0, 0)
   CUDNN_CHECK(cudnnActivationBackward(this->handle_,
-        activ_desc_,
+        //activ_desc_,
+        CUDNN_ACTIVATION_TANH,
         cudnn::dataType<Dtype>::one,
         this->top_desc_, top_data, this->top_desc_, top_diff,
         this->bottom_desc_, bottom_data,
@@ -52,7 +55,8 @@ void CuDNNTanHLayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
         this->bottom_desc_, bottom_diff));
 #else
   CUDNN_CHECK(cudnnActivationBackward_v4(this->handle_,
-        activ_desc_,
+        //activ_desc_,
+        CUDNN_ACTIVATION_TANH,
         cudnn::dataType<Dtype>::one,
         this->top_desc_, top_data, this->top_desc_, top_diff,
         this->bottom_desc_, bottom_data,

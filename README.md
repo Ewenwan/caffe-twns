@@ -23,13 +23,21 @@ NOTE:
 1. Preparing data  下载minist数据集 
 $./data/mnist/get_mnist.sh
 
-    http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
-    http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
-    http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
-    http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+        http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+
+        http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+
+        http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+
+        http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+
+
+    解压：
+    gunzip *.gz 或者 gzip -d *.gz  注意解压后没有后缀名
 
 2. Converting data to lmdb   转换成 lmdb 数据库格式
 $./examples/mnist/create_mnist.sh
+
 
 3. Configurations   配置
 3.1 setting the PRECISION in the train_lenet_tn.sh  

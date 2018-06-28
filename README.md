@@ -20,17 +20,22 @@ NOTE:
 2. The Makefile has been modified to accomodate Ubuntu 16.04. For previous version of Ubuntu, please replace the Makefile with the original one.
 
 ## Steps to run a demo  
-1. Preparing data  
-$./data/mnist/get_mnist.sh  
+1. Preparing data  下载minist数据集 
+$./data/mnist/get_mnist.sh
 
-2. Converting data to lmdb  
+    http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+    http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+    http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+    http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+
+2. Converting data to lmdb   转换成 lmdb 数据库格式
 $./examples/mnist/create_mnist.sh
 
-3. Configurations  
+3. Configurations   配置
 3.1 setting the PRECISION in the train_lenet_tn.sh  
 3.2 setting the DELTA value (0.7 default)  
 
-4. Training  
+4. Training         训练
 $cd examples/mnist  
 $sh train_lenet_tn.sh
 
